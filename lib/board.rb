@@ -20,10 +20,18 @@ class Board
     ship_count
   end
 
-  def empty?(pos)
+  def empty?(pos=nil)
     # puts "______position________"
-    @grid[pos[0]][pos[1]] == nil
-  end
+    if pos != nil
+      return true if @grid[pos[0]][pos[1]] == nil
+    end
+      @grid.each do |row|
+        row.each do |cell|
+          return false if cell != nil
+        end
+      end
+      return true
+    end
 
   def full?
     # puts "___________full?___________"
@@ -35,5 +43,13 @@ class Board
     return true
   end
 
+  def place_random_ship
+    raise "board is full, error!" if @grid.full?
+    puts "__________-____random ship_______________"
+    p @grid.full?
+    random_x_pos = rand(10)
+    random_y_pos = rand(10)
+    @grid[random_x_pos][random_y_pos] = :s
+  end
 
 end
