@@ -10,7 +10,7 @@ class Board
   end
 
   def count
-    puts " ________count__________"
+    # puts " ________count__________"
     ship_count = 0
     @grid.each do |row|
       row.each do |cell|
@@ -20,7 +20,20 @@ class Board
     ship_count
   end
 
-  def empty?
+  def empty?(pos)
+    # puts "______position________"
+    @grid[pos[0]][pos[1]] == nil
   end
+
+  def full?
+    # puts "___________full?___________"
+    @grid.each do |row|
+      row.each do |cell|
+        return false if cell == nil
+      end
+    end
+    return true
+  end
+
 
 end
