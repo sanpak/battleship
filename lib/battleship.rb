@@ -23,8 +23,7 @@ class BattleshipGame
 
   def play_turn
     puts "________play_turn_______________"
-    move = player.play_turn
-    move = move.split(",").map { |el| el.to_i }
+    move = player.get_play
     attack(move)
     # move = player.get_move.split(",").map { |el| el.to_i }
     # p board.grid[move[0]][move[1]] = :x

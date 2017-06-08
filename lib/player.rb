@@ -5,9 +5,9 @@ class HumanPlayer
     @user_pos = user_pos
   end
 
-  def get_move
+  def get_play
     puts "What is your move: X,Y:"
-    return gets.chomp
+    gets.chomp.split(",").map { |el| el.to_i }
   end
 
 
