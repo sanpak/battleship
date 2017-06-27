@@ -1,10 +1,15 @@
 class Board
-  attr_accessor :grid
+  attr_accessor :grid, :player_grid
   def self.default_grid
     @grid = Array.new(10) { Array.new(10) }
+    #create a board for player so he can visually see where he attacks
+    #but he won't see where the ship is
+    # @player_grid = Array.new(10) { Array.new(10) }
   end
 
   def initialize(grid=nil)
+    # @player_grid = player_grid
+    # @player_grid = Board.default_grid unless grid
     @grid = grid
     @grid = Board.default_grid unless grid
   end
